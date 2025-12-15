@@ -15,7 +15,7 @@ class Myfile:
         try:
             with open(self.path, "r", encoding="utf-8") as file:
                 return file.read()
-        except FileExistsError:
+        except FileNotFoundError:
             return ('файл не найден')
     
     
@@ -95,18 +95,16 @@ print(text)
 file = Myfile("text.txt", "write")
 result = file.write("как дела?") 
 print(result)
+
 file = Myfile("text.txt", "append")
-result = file.write(" how are you?")  # 
+result = file.write_at_the_end(" how are you?")  # 
 print(result)
 
 file = Myfile("https://stackoverflow.com/questions/1984325/explaining-pythons-enter-and-exit", "url")
-text = file.read_url() 
+text = file.r_url() 
 print(text[:400] + "...") 
 
-count = file.count_urls()
-print(f"колво url на странице: {count}")
-
-result = file.write_url("textURL.txt")
+result = file.w_url("textURL.txt")
 print(result)
 
 file.close()
