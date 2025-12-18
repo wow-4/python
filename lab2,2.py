@@ -1,5 +1,4 @@
 import urllib.request
-import re
 class Myfile:
     def __init__(self, path, mode='read'):
         self.path = path
